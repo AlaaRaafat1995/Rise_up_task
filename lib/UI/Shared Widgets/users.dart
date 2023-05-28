@@ -32,15 +32,15 @@ class _UsersState extends State<Users> {
       trailing: widget.user.status == "active"
           ? const CircleAvatar(
               backgroundColor: Colors.green,
-              radius: 7,
+              radius: 7.0,
             )
           : const CircleAvatar(
               backgroundColor: Colors.red,
-              radius: 7,
+              radius: 7.0,
             ),
       title: Text(
         widget.user.name,
-        style: const TextStyle(fontSize: 17),
+        style: const TextStyle(fontSize: 17.0),
       ),
     );
   }

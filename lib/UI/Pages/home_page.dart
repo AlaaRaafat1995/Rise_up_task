@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text(
           "Get Users",
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 30.0),
         ),
         centerTitle: true,
       ),

@@ -93,8 +93,9 @@ class _UpdateUserPageState extends State<UpdateUserPage> {
                 status: status == null ? widget.user.status : status!,
               );
               const CircularProgressIndicator();
-              widget.updateUi();
+
               Navigation().navigateReplace(context, HomePage());
+              widget.updateUi();
             },
             child: const Text("Update User"),
           )

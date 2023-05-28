@@ -22,7 +22,7 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigation().navigatepush(context,
+          Navigation().navigateReplace(context,
               UpdateUserPage(user: widget.userDetails, updateUi: updateUi));
         },
         child: const Icon(Icons.edit),
@@ -30,11 +30,11 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
       appBar: AppBar(title: const Text("User Details")),
       body: Center(
         child: Container(
-          margin: const EdgeInsets.all(10),
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.0),
           ),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,34 +43,34 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
                 Text(
                   "Name : ${widget.userDetails.name}",
                   style: const TextStyle(
-                    fontSize: 25,
+                    fontSize: 25.0,
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 10.0,
                 ),
                 Text(
                   "E-mail : ${widget.userDetails.email}",
                   style: const TextStyle(
-                    fontSize: 25,
+                    fontSize: 25.0,
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 10.0,
                 ),
                 Text(
                   "Gender : ${widget.userDetails.gender}",
                   style: const TextStyle(
-                    fontSize: 25,
+                    fontSize: 25.0,
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 10.0,
                 ),
                 Text(
                   "Status : ${widget.userDetails.status}",
                   style: const TextStyle(
-                    fontSize: 25,
+                    fontSize: 25.0,
                   ),
                 ),
               ]),
