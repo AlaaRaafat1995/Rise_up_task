@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:rise_up_task/Services/add_user.dart';
+import 'package:rise_up_task/Services/add_user_services.dart';
 import 'package:rise_up_task/UI/Shared%20Widgets/functions.dart';
 
 class Api {
@@ -60,8 +60,7 @@ class Api {
         return snake(context, "This E-mail has already been taken");
       }
     } on Exception catch (e) {
-      throw Exception(
-          "there is an exception StatusCode : ${response.statusCode}");
+      throw Exception("there is an exception StatusCode : $e");
     }
   }
 

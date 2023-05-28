@@ -4,10 +4,10 @@ import 'package:rise_up_task/UI/Pages/show_user_details.dart';
 import 'package:rise_up_task/UI/Shared%20Widgets/functions.dart';
 
 class Users extends StatefulWidget {
-  Users({Key? key, required this.user, required this.updateui})
+  const Users({Key? key, required this.user, required this.updateui})
       : super(key: key);
   final UserModel user;
-  VoidCallback updateui;
+  final VoidCallback updateui;
 
   @override
   State<Users> createState() => _UsersState();

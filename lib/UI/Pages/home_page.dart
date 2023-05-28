@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rise_up_task/Models/user_model.dart';
-import 'package:rise_up_task/Services/get_users.dart';
+import 'package:rise_up_task/Services/get_users_services.dart';
 import 'package:rise_up_task/UI/Pages/add_new_user_page.dart';
 import 'package:rise_up_task/UI/Shared%20Widgets/functions.dart';
 import 'package:rise_up_task/UI/Shared%20Widgets/users.dart';
@@ -65,7 +65,9 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
         },
       ),

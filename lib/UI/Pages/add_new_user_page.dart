@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rise_up_task/Services/add_user.dart';
+import 'package:rise_up_task/Services/add_user_services.dart';
 import 'package:rise_up_task/UI/Shared%20Widgets/custom_text_filed.dart';
 import 'package:rise_up_task/UI/Shared%20Widgets/functions.dart';
 
@@ -23,70 +23,73 @@ class _AddNewUserPageState extends State<AddNewUserPage> {
       body: Form(
         key: formkey,
         child: SingleChildScrollView(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            CustomTextField(
-              labelText: "name",
-              hintText: "Enter Your Name",
-              valid: (name) {
-                if (!(name!.startsWith(RegExp(r'[A-Z]')))) {
-                  return "Start With Capital Letter";
-                }
-                return null;
-              },
-              onChanged: (data) {
-                name = data;
-              },
-            ),
-            CustomTextField(
-              labelText: "email",
-              hintText: "Enter Your E-mail",
-              valid: (value) {
-                String p =
-                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomTextField(
+                labelText: "name",
+                hintText: "Enter Your Name",
+                valid: (name) {
+                  if (!(name!.startsWith(RegExp(r'[A-Z]')))) {
+                    return "Start With Capital Letter";
+                  }
+                  return null;
+                },
+                onChanged: (data) {
+                  name = data;
+                },
+                keyboard: TextInputType.emailAddress,
+              ),
+              CustomTextField(
+                labelText: "email",
+                hintText: "Enter Your E-mail",
+                valid: (value) {
+                  String p =
+                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-                RegExp regExp = RegExp(p);
-                if (value!.isEmpty) {
-                  return ('Please, Enter Email');
-                } else if (!regExp.hasMatch(value)) {
-                  return ('Please, Enter Valid Email');
-                }
-                if (!(value.endsWith(".com"))) {
-                  return ('Please, Enter Valid Email');
-                } else {
-                  return null;
-                }
-              },
-              onChanged: (data) {
-                email = data;
-              },
-            ),
-            CustomTextField(
-              labelText: "gender",
-              hintText: "Enter Your Gender",
-              valid: (val) {
-                if (val == "female" || val == "male") {
-                  return null;
-                }
-                return ("Female or Male Only");
-              },
-              onChanged: (data) {
-                gender = data;
-              },
-            ),
-            CustomTextField(
-              labelText: "status",
-              hintText: "Enter Your Status",
-              valid: (status) {
-                if (status == "active" || status == "inactive") {
-                  return null;
-                }
-                return ("Active or Inactive Only");
-              },
-              onChanged: (data) {
-                status = data;
-              },
-            ),
-            ElevatedButton(
+                  RegExp regExp = RegExp(p);
+                  if (value!.isEmpty) {
+                    return ('Please, Enter Email');
+                  } else if (!regExp.hasMatch(value)) {
+                    return ('Please, Enter Valid Email');
+                  }
+                  if (!(value.endsWith(".com"))) {
+                    return ('Please, Enter Valid Email');
+                  } else {
+                    return null;
+                  }
+                },
+                onChanged: (data) {
+                  email = data;
+                },
+              ),
+              CustomTextField(
+                labelText: "gender",
+                hintText: "Enter Your Gender",
+                valid: (val) {
+                  if (val == "female" || val == "male") {
+                    return null;
+                  }
+                  return ("Female or Male Only");
+                },
+                onChanged: (data) {
+                  gender = data;
+                },
+              ),
+              CustomTextField(
+                labelText: "status",
+                hintText: "Enter Your Status",
+                valid: (status) {
+                  if (status == "active" || status == "inactive") {
+                    return null;
+                  }
+                  return ("Active or Inactive Only");
+                },
+                onChanged: (data) {
+                  status = data;
+                },
+              ),
+              ElevatedButton(
                 onPressed: () async {
                   var formvalid = formkey.currentState;
 
@@ -105,8 +108,10 @@ class _AddNewUserPageState extends State<AddNewUserPage> {
                     }
                   }
                 },
-                child: const Text("Save User"))
-          ]),
+                child: const Text("Save User"),
+              )
+            ],
+          ),
         ),
       ),
     );
